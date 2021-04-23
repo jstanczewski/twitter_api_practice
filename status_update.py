@@ -1,14 +1,11 @@
 import tweepy
 import webbrowser
-import time
-
 from decouple import config
 
-consumer_key = config('API_KEY')
-consumer_secret_key = config('API_SECRET_KEY')
+consumer_key = config("API_KEY")
+consumer_secret_key = config("API_SECRET_KEY")
 
-# typically url
-callback_uri = 'oob'
+callback_uri = "oob"
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret_key, callback_uri)
 
@@ -23,6 +20,8 @@ auth.get_access_token(user_pin_input)
 api = tweepy.API(auth)
 me = api.me()
 
-new_status = api.update_status(input('New status: '))
-img_obj = api.media_upload(input('Image path: '))
-new_status_with_img = api.update_status(input('New status (with image): '), media_ids=[img_obj.media_id_string])
+new_status = api.update_status(input("New status: "))
+img_obj = api.media_upload(input("Image path: "))
+new_status_with_img = api.update_status(
+    input("New status (with image): "), media_ids=[img_obj.media_id_string]
+)
