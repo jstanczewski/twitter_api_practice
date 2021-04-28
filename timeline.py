@@ -1,7 +1,6 @@
 import tweepy
 import webbrowser
 from decouple import config
-import pandas as pd
 
 consumer_key = config("API_KEY")
 consumer_secret_key = config("API_SECRET_KEY")
